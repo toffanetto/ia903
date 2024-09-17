@@ -1,0 +1,188 @@
+\section{}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/robot_leg}
+	\caption{Sistemas de coordenadas da perna robótica.}
+	\label{fig:robot_leg}
+\end{figure}
+
+Uma vez dados os sistemas de coordenadas da perna robótica, exibidos na \autoref{fig:robot_leg}, é possível observar que o \textit{frame} \{$P_1$\} apresenta rotação em torno do eixo $x$, o \textit{frame} \{$P_2$\} em torno do eixo $y$, assim como o \textit{frame} \{$P_3$\}. Considerando o vetor de coordenadas generalizadas, $\+q = [\alpha \ \beta \ \gamma]^T$, sendo $\alpha, \ \beta $ e $\gamma$ respectivamente os ângulos de rotação dos sistemas de coordenadas \{$P_1$\}, \{$P_2$\} e \{$P_3$\}.
+
+Com isso, têm-se que a rotação entre os sistemas de coordenadas da base e da junta 1 é dado pela matriz \eqref{eq:R_B1}, a rotação entre o \textit{frame} \{$P_1$\} e o \textit{frame} \{$P_2$\} é dada por \eqref{eq:R_12} e a rotação entre o sistema de coordenadas da junta 2 e o sistema da junta 3 é dado pela matriz \eqref{eq:R_23}.
+
+\begin{equation}\label{eq:R_B1}
+	\+R_{B1} = \begin{bmatrix}
+		1 & 0          & 0 \\
+		0 & \cos(\alpha) & -\sin(\alpha) \\
+		0 & \sin(\alpha) & \cos(\alpha)
+	\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{eq:R_12}
+	\+R_{12} = \begin{bmatrix}
+		\cos(\beta)  & 0  & \sin(\beta) \\
+		0          & 1  & 0         \\
+		-\sin(\beta) & 0  & \cos(\beta)
+	\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{eq:R_23}
+	\+R_{23} = \begin{bmatrix}
+		\cos(\gamma) & 0 & \sin(\gamma) \\
+		0            & 1 & 0            \\
+		-\sin(\gamma)& 0 & \cos(\gamma)
+	\end{bmatrix}
+\end{equation}
+
+
+
+
+
+
+\section{}
+
+Os sistemas de coordenadas \{$P_B$\},  \{$P_1$\}, \{$P_2$\} , \{$P_3$\} e \{$P_F$\} da perna robótica estão posicionados entre eles em distâncias $l_B$, $l_1$, $l_2$, $l_3$ e $l_F$, respectivamente. Considerando todas essas distâncias iguais e unitárias, obtêm-se os vetores de translação entre os referenciais mostrados em \eqref{eq:r_B1_inB}, \eqref{eq:r_12_in1}, \eqref{eq:r_23_in2} e \eqref{eq:r_3F_in3}.
+
+\begin{equation}\label{eq:r_B1_inB}
+	_B \+r_{B1} = \begin{bmatrix} 0 & 1 & 0 \end{bmatrix}^T;
+\end{equation}
+
+
+\begin{equation}\label{eq:r_12_in1}
+	_1 \+r_{12} =  \begin{bmatrix} 0 & 0 & -1 \end{bmatrix}^T;
+\end{equation}
+
+
+\begin{equation}\label{eq:r_23_in2}
+	_2 \+r_{23} = \begin{bmatrix} 0 & 0 & -1 \end{bmatrix}^T;
+\end{equation}
+
+
+\begin{equation}\label{eq:r_3F_in3}
+	_3 \+r_{3F} = \begin{bmatrix} 0 & 0 & -1 \end{bmatrix}^T;
+\end{equation}
+
+Permitindo a transformação entre os sistemas de coordenada, incluindo rotação e translação em uma só operação, a utilização de transformações homogêneas se faz interessante, sendo a mesma enunciada em \eqref{eq:H}.
+
+\begin{equation}
+	\+H = \begin{bmatrix}
+		&	\+R_{[3\times 3]} & & \+{r}_{[3\times 1]} \\
+		0 & 0 & 0 & 1
+	\end{bmatrix}_{[4\times 4]}
+	\label{eq:H}
+\end{equation}
+
+Dessa forma, a transformação homogênea entre o \textit{frame}  \{$P_B$\} e  \{$P_1$\} é dada por \eqref{eq:H_B1}, entre \{$P_1$\} e  \{$P_2$\} é dada por \eqref{eq:H_12},  entre \{$P_2$\} e  \{$P_3$\} é dada por \eqref{eq:H_23} e  entre \{$P_3$\} e  \{$P_F$\} é dada por \eqref{eq:H_3F}, 
+
+\begin{equation}\label{eq:H_B1}
+	_B \+H_{1} = \begin{bmatrix}
+		1 & 0            & 0              & 0\\
+		0 & \cos(\alpha) & -\sin(\alpha)  & 1\\
+		0 & \sin(\alpha) & \cos(\alpha)   & 0 \\
+		0 & 0 & 0                         & 1
+	\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}\label{eq:H_12}
+	_1 \+H_{2} = \begin{bmatrix}
+		\cos(\beta)  & 0  & \sin(\beta)  &  0 \\
+		0          & 1  & 0                  &  0 \\
+		-\sin(\beta) & 0  & \cos(\beta)      & -1  \\
+		0 & 0 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}\label{eq:H_23}
+	_2 \+H_{3} = \begin{bmatrix}
+		\cos(\gamma)  & 0  & \sin(\gamma)  &  0 \\
+		0          & 1  & 0                  &  0 \\
+		-\sin(\gamma) & 0  & \cos(\gamma)      & -1  \\
+		0 & 0 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}\label{eq:H_3F}
+	_3 \+H_{F} = \begin{bmatrix}
+		1 & 0  & 0      &  0 \\
+		0 & 1  & 0      &  0 \\
+		0 & 0  & 1      & -1  \\
+		0 & 0  & 0      & 1
+	\end{bmatrix}
+\end{equation}
+
+Para se obter a transformação homogênea entre \textit{frames} de um conjunto consecutivo de transformações de referencial, basta multiplicar as matrizes de transformação homogênea, como feito em \eqref{eq:HB3}, obtendo assim a transformação da base para a terceira junta da perna robótica.
+
+\begin{equation}\label{eq:HB3}
+	_B \+H_3 \ = \ _B \+H_1 \  _1 \+H_2  \ _2 \+H_3 = \begin{bmatrix}
+		? & 0  & 0      &  0 \\
+		0 & ?  & 0      &  0 \\
+		0 & 0  & ?      &  ? \\
+		0 & 0  & 0      &  1
+	\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{eq:HBF}
+	_B \+H_3 \ = \ _B \+H_1 \  _1 \+H_2  \ _2 \+H_3  \ _3 \+H_F = \begin{bmatrix}
+		? & 0  & 0      &  0 \\
+		0 & ?  & 0      &  0 \\
+		0 & 0  & ?      &  ? \\
+		0 & 0  & 0      &  1
+	\end{bmatrix}
+\end{equation}
+
+Por meio da transformação de referencial entre o \textit{frame} da base e da ferramenta, \eqref{eq:HBF}, é possível expressar o vetor da base para a ferramentam, pré-multiplicando o vetor da origem da base ($_B\+r_{BB} = [0 \ 0 \ 0]^T_B$) pela transformação homogênea em questão.
+
+\begin{equation}\label{eq:r_BF_inB}
+	_B \+r_{BF} = \ _B\+H_F \ _B\+r_{BB} = \begin{bmatrix} ? \\ ?  \\ ? \end{bmatrix}
+\end{equation}
+
+
+
+
+
+\section{}
+
+\begin{gather}\label{eq:J_BF_inB}
+	_B \+J_{BF} = \frac{\partial _B \+r_{BF}}{\partial \+q} = \begin{bmatrix}
+		\frac{\partial _B \+r_{BF}}{\partial q_1} & \frac{\partial_B \+r_{BF}}{\partial q_2} & \frac{\partial _B \+r_{BF}}{\partial q_3}\end{bmatrix} = \begin{bmatrix}
+		\frac{\partial _B r_{xBF}}{\partial q_1} & \frac{\partial_B r_{xBF}}{\partial q_2} & \frac{\partial _B r_{xBF}}{\partial q_3} \\
+		\frac{\partial _B r_{yBF}}{\partial q_1} & \frac{\partial_B r_{yBF}}{\partial q_2} & \frac{\partial _B r_{yBF}}{\partial q_3} \\
+		\frac{\partial _B r_{zBF}}{\partial q_1} & \frac{\partial_B r_{zBF}}{\partial q_2} & \frac{\partial _B r_{zBF}}{\partial q_3} 
+	\end{bmatrix} \\
+	_B \+J_{BF} = \begin{bmatrix}
+		&  &  &  & \\
+		&  &  &  & \\
+		&  &  &  & \\
+		&  &  &  &
+	\end{bmatrix}
+\end{gather}
+
+\begin{equation}\label{eq:qi}
+	\+q_i = \begin{bmatrix}
+		0^\circ & 60^\circ & -120^\circ
+	\end{bmatrix}^T
+\end{equation}
+
+\begin{equation}\label{eq:JBF}
+	\+J_{BF} = 
+\end{equation}
+
+\begin{equation}\label{eq:dq}
+	d\+q = \+J_{BF}^+ \+v
+\end{equation}
+
+
+
+
+
+\section{}
+
+
+
+
+
+\section{}
