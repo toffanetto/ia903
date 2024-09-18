@@ -60,6 +60,11 @@
 \usepackage[makeroom]{cancel}
 \usepackage{fancyhdr}
 \usepackage{nameref}
+
+
+
+\usepackage{algorithm}
+\usepackage{algpseudocode} 
 %\usepackage{refcheck} % Verify about not used labels
 
 
@@ -111,7 +116,10 @@
 
 \newcommand{\+}[1]{\ensuremath{\mathbf{#1}}} % comando para escrever matrizes em negrito \+A= A
 
+\renewcommand{\ALG@name}{Algoritmo}% Algorithm -> Algoritmo
+
 \renewcommand{\lstlistingname}{Código}% Listing -> Código
+
 \renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}% List of Listings -> Lista de Códigos
 
 \makeatletter
