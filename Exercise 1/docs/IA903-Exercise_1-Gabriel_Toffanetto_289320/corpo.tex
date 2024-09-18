@@ -137,7 +137,7 @@ Para se obter a transformação homogênea entre \textit{frames} de um conjunto 
 Por meio da transformação de referencial entre o \textit{frame} da base e da ferramenta, \eqref{eq:HBF}, é possível expressar o vetor da base para a ferramentam, pré-multiplicando o vetor da origem da base ($_B\+r_{BB} = [0 \ 0 \ 0]^T_B$) pela transformação homogênea em questão.
 
 \begin{equation}\label{eq:r_BF_inB}
-	_B \+r_{BF} = \ _B\+H_F \ _B\+r_{BB} = \begin{bmatrix} ? \\ ?  \\ ? \end{bmatrix}
+	_B \+r_{BF} = \ _B\+H_F \ _B\+r_{BB} = \begin{bmatrix} - \sin(\beta + \gamma) - \sin(\beta) \\ \sin(\alpha)[\cos(\beta + \gamma) + \cos(\beta) + 1] + 1  \\ -\cos(\alpha)[\cos(\beta + \gamma) + cos(\beta) + 1] \end{bmatrix}
 \end{equation}
 
 
@@ -154,12 +154,15 @@ Por meio da transformação de referencial entre o \textit{frame} da base e da f
 		\frac{\partial _B r_{zBF}}{\partial q_1} & \frac{\partial_B r_{zBF}}{\partial q_2} & \frac{\partial _B r_{zBF}}{\partial q_3} 
 	\end{bmatrix} \\
 	_B \+J_{BF} = \begin{bmatrix}
-		&  &  &  & \\
-		&  &  &  & \\
-		&  &  &  & \\
-		&  &  &  &
+	0	& -\text{c}(\beta + \gamma) - \text{c}(\beta)  & -\text{c}(\beta + \gamma) \\
+	\text{c}(\alpha)[\text{c}(\beta + \gamma) + \text{c}(\beta) + 1]	& \text{s}(\alpha)[-\text{s}(\beta + \gamma) -\text{s}(\beta)] & -\text{s}(\alpha)\text{s}(\beta + \gamma) \\
+	\text{s}(\alpha)[\text{c}(\beta + \gamma) + \text{c}(\beta) + 1]	&  \text{c}(\alpha)[\text{s}(\beta + \gamma) +\text{s}(\beta)] & \text{c}(\alpha)\text{s}(\beta + \gamma)
 	\end{bmatrix}
 \end{gather}
+
+Onde $\text{s}(\cdot) = \sin(\cdot)$ e $\text{c}(\cdot) = \cos(\cdot)$.
+
+Considerando uma posição inicial para a perna robótica, \eqref{eq:qi}, e uma velocidade para a ferramenta \eqref{eq:v}, obtém-se um jacobiano instantâneo igual a \eqref{eq:JBF}.
 
 \begin{equation}\label{eq:qi}
 	\+q_i = \begin{bmatrix}
@@ -167,12 +170,23 @@ Por meio da transformação de referencial entre o \textit{frame} da base e da f
 	\end{bmatrix}^T
 \end{equation}
 
-\begin{equation}\label{eq:JBF}
-	\+J_{BF} = 
+\begin{equation}\label{eq:v}
+	\+v = \begin{bmatrix}
+		0 & 0 & -1\end{bmatrix}^T \text{(m/s)}
 \end{equation}
 
+\begin{equation}\label{eq:JBF}
+	\+J_{BF} = \begin{bmatrix}
+		0 & -1 & -0,5 \\
+		2 & 0 & 0 \\
+		0 & 0 & 0,866
+	\end{bmatrix}
+\end{equation}
+
+Com isso, uma vez que o jacobiano relaciona a velocidade no espaço cartesiano com a velocidade no espaço das juntas, $\+v = \+J\+{\Dot{q}}$, pode-se obter a velocidade instantânea das das juntas da perna robótica, $\text{d}\+q$, por meio de \eqref{eq:dq}, para a velocidade desejada do efetuador e a posição inicial das juntas.
+
 \begin{equation}\label{eq:dq}
-	d\+q = \+J_{BF}^+ \+v
+	\text{d}\+q = \+J_{BF}^+ \+v = \begin{bmatrix}0 \\ -0,5774 \\ 1,1547 	\end{bmatrix}
 \end{equation}
 
 
@@ -180,7 +194,6 @@ Por meio da transformação de referencial entre o \textit{frame} da base e da f
 
 
 \section{}
-
 
 
 

@@ -1,6 +1,6 @@
 clc; clear all
 
-syms alpha beta gamma real
+syms alpha beta gamma
 
 lb = 1; l1 = 1; l2 = 1; l3 = 1;
 

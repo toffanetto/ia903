@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.22)  17 SEP 2024 18:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.22)  17 SEP 2024 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -839,7 +839,34 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2
 
- <./img/robot_leg.png (PNG copy)>] [3] [4]) [5]
+ <./img/robot_leg.png (PNG copy)>] [3] [4]
+
+! LaTeX Error: Environment algorithm undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 \begin{algorithm}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{algorithm}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 \end{algorithm}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) [5]
 No file IA903-Exercise_1-Gabriel_Toffanetto_289320.bbl.
 \openout2 = `anexos.aux'.
 
@@ -856,13 +883,13 @@ ut' has not changed.
 (rerunfilecheck)             Checksum: 5A9D3CC171E248BB1E603D68275DC6D1;349.
  ) 
 Here is how much of TeX's memory you used:
- 18104 strings out of 480186
- 304196 string characters out of 5894355
- 649940 words of memory out of 5000000
- 35676 multiletter control sequences out of 15000+600000
- 481711 words of font info for 61 fonts, out of 8000000 for 9000
+ 18111 strings out of 480186
+ 304267 string characters out of 5894355
+ 651968 words of memory out of 5000000
+ 35680 multiletter control sequences out of 15000+600000
+ 483241 words of font info for 63 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
- 109i,15n,106p,643b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 109i,16n,106p,643b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/toffanetto/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti120
 0.600pk> </home/toffanetto/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/e
 crm1000.600pk> </home/toffanetto/.texlive2021/texmf-var/fonts/pk/ljfour/jknappe
@@ -881,11 +908,11 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on IA903-Exercise_1-Gabriel_Toffanetto_289320.pdf (6 pages, 2917
-07 bytes).
+Output written on IA903-Exercise_1-Gabriel_Toffanetto_289320.pdf (6 pages, 2946
+29 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
+ 406 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  79 words of extra memory for PDF output out of 10000 (max. 10000000)
 
