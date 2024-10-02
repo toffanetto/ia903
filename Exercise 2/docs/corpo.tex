@@ -33,13 +33,13 @@ Para que dada uma velocidade linear e angular desejas, o robô seja capaz de seg
 	\frac{r}{2l} & -\frac{r}{2l} 
 \end{bmatrix} ^{-1} \begin{bmatrix}
 v \\ \omega
-\end{bmatrix} = \frac{\text{adj}\left(\begin{bmatrix}
+\end{bmatrix} = \left[ \frac{\text{adj}\left(\begin{bmatrix}
 \frac{r}{2} & \frac{r}{2} \\
 \frac{r}{2l} & -\frac{r}{2l} 
 \end{bmatrix}\right)}{\det{\left(\begin{bmatrix}
 \frac{r}{2} & \frac{r}{2} \\
 \frac{r}{2l} & -\frac{r}{2l} 
-\end{bmatrix}\right)}}\begin{bmatrix}
+\end{bmatrix}\right)}} \right] \begin{bmatrix}
 v \\ \omega
 \end{bmatrix} = \begin{bmatrix}
 \frac{1}{r} & \frac{l}{r} \\
@@ -102,8 +102,9 @@ O algoritmo de teleoperação foi implementado de acordo com  o Algoritmo~\autor
 
 \section{Controle em malha fechada}
 
+\subsection{Controle $\rho$ e $\alpha$}
 
-Aplicado o controle em malha fechada, dado por \eqref{eq:controle}, obtêm-se o posicionamento do robô nas posições desejadas, como mostrado nas Figuras~\ref{fig:4-1},~\ref{fig:4-2}~e~\ref{fig:4-3}.
+Aplicado o controle em malha fechada, utilizando apenas o erro de posição e orientação em relação ao ponto de destino, dado por \eqref{eq:controle}, obtêm-se o posicionamento do robô nas posições desejadas, como mostrado nas Figuras~\ref{fig:4-1},~\ref{fig:4-2}~e~\ref{fig:4-3}.
 
 \begin{equation}\label{eq:controle}
 	\begin{split}
@@ -139,6 +140,52 @@ Sendo $k_\rho = 0,5$ e $k_\alpha = 1.5$, respeitando as condições para estabil
 	\includegraphics[width=0.6\linewidth]{img/4-3}
 	\caption{Trajetória do robô para a posição $(3; 0,5)$ orientado à 180°.}
 	\label{fig:4-3}
+\end{figure}
+
+Observa-se que com esse tipo de controle, o robô tende a guiar diretamente até o ponto de destino, e corrigir sua orientação para a referência desejada uma vez que ele já está no ponto de \textit{target}. Essa estratégia se faz interessante para atingir posições que estão próximas de obstáculos, onde o robô pode chegar pelo caminho que está livre e se posicionar na orientação desejada. Porém, observou-se que, principalmente para o ponto da \autoref{fig:4-1}, a trajetória do robô apresenta um grande \textit{overshoot}, realizando desvios desnecessários.
+
+
+\subsection{Controle $\rho$, $\alpha$ e $\beta$}
+
+Ampliando o controlador implementado anteriormente, adicionado a parcela de erro do ângulo entre a orientação o vetor do robô ao destino e da orientação de destino, dada por $\beta$, se obtém o controle formalizado por \eqref{eq:controleb}. Diferentemente do controle anterior, nessa situação, o robô tenta chegar no seu destino com a orientação desejada, evitando que o mesmo precise girar no seu próprio eixo para corrigir a sua orientação. Observa-se na \autoref{fig:4-1-2}, que a trajetória percorrida é mais suave, e leva o robô ao \textit{target} na direção desejada. O mesmo é visto na \autoref{fig:4-2-2}. Porém, na situação da \autoref{fig:4-3-2}, como o alvo está perto da parede, e a orientação do robô é de 180°, o robô colide na tentativa de contornar o destino para aproximar por trás do mesmo, sendo uma situação onde este tipo de controle é falho.
+
+
+
+\begin{equation}\label{eq:controleb}
+\begin{split}
+	\rho &= \sqrt{(x_g-x)^2 + (y_g-y)^2} \\
+	\alpha& = \mod \left[\text{atan2}\left(y_g-y,x_g-x\right) - \theta + \pi, \ 2\pi \right] -\pi \\
+	v &= k_\rho\rho \\
+	\beta &= \mod \left[\theta_g - \text{atan2}\left(y_g-y,x_g-x\right)+ \pi, \ 2\pi \right] -\pi \\
+	\omega &= k_\alpha\alpha + k_\beta\beta
+\end{split}
+\end{equation}
+
+Sendo $k_\rho = 0,5$,  $k_\alpha = 1.5$ e $k_\beta = -0,6$, respeita-se as condições para estabilidade do sistema.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\linewidth]{img/4-1-2}
+\caption{Trajetória do robô para a posição $(1,6; 0,6)$ orientado à 90°.}
+\label{fig:4-1-2}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\linewidth]{img/4-2-2}
+\caption{Trajetória do robô para a posição $(-0,5; 0)$ orientado à 180°.}
+\label{fig:4-2-2}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\linewidth]{img/4-3-2}
+\caption{Trajetória do robô para a posição $(3; 0,5)$ orientado à 180°.}
+\label{fig:4-3-2}
 \end{figure}
 
 
@@ -190,15 +237,12 @@ Como resultado, observou-se uma trajetória mais suave até o alvo, mas porém, 
 	\label{fig:5-1}
 \end{figure}
 
-
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{img/5-2}
 	\caption{Trajetória do robô para a posição $(-0,5; 0)$ orientado à 180°.}
 	\label{fig:5-2}
 \end{figure}
-
 
 \begin{figure}[H]
 	\centering

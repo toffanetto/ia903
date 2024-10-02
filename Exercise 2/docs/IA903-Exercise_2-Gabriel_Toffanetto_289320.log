@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.7)  29 SEP 2024 13:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.7)  2 OCT 2024 10:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -885,7 +885,7 @@ Package ragged2e Info: ABD: executing \RaggedRight on input line 38.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<img/core/logo_unicamp.pdf, id=26, 302.71455pt x 339.65479pt>
+<img/core/logo_unicamp.pdf, id=34, 302.71455pt x 339.65479pt>
 File: img/core/logo_unicamp.pdf Graphic file (type pdf)
 <use img/core/logo_unicamp.pdf>
 Package pdftex.def Info: img/core/logo_unicamp.pdf  used on input line 47.
@@ -900,7 +900,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--47
 
  []
 
-(IA903-Exercise_2-Gabriel_Toffanetto_289320.toc)
+(IA903-Exercise_2-Gabriel_Toffanetto_289320.toc
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 5.
+
+
+(C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+
+(C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+
+(C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write5
 \openout5 = `IA903-Exercise_2-Gabriel_Toffanetto_289320.toc'.
 
@@ -913,23 +929,7 @@ ogo_unicamp.pdf>]
 \openout2 = `corpo.aux'.
 
  (corpo.tex
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
-
-
-(C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
-
-(C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
-
-(C:\Users\gabri\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<img/testCircleDrive.pdf, id=56, 363.3575pt x 303.1325pt>
+<img/testCircleDrive.pdf, id=69, 363.3575pt x 303.1325pt>
 File: img/testCircleDrive.pdf Graphic file (type pdf)
 <use img/testCircleDrive.pdf>
 Package pdftex.def Info: img/testCircleDrive.pdf  used on input line 55.
@@ -949,50 +949,130 @@ File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 [2
 
  <./img/testCircleDrive.pdf>]
-<img/4-1.png, id=82, 621.82312pt x 410.2828pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 105.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rho' on input line 105.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 105.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 105.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 105.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 105.
+
+<img/4-1.png, id=94, 621.82312pt x 410.2828pt>
 File: img/4-1.png Graphic file (type png)
 <use img/4-1.png>
-Package pdftex.def Info: img/4-1.png  used on input line 122.
+Package pdftex.def Info: img/4-1.png  used on input line 123.
 (pdftex.def)             Requested size: 290.22107pt x 191.48695pt.
 
 
 [3]
-<img/4-2.png, id=94, 625.58719pt x 417.81094pt>
+<img/4-2.png, id=107, 625.58719pt x 417.81094pt>
 File: img/4-2.png Graphic file (type png)
 <use img/4-2.png>
-Package pdftex.def Info: img/4-2.png  used on input line 131.
+Package pdftex.def Info: img/4-2.png  used on input line 132.
 (pdftex.def)             Requested size: 290.22107pt x 193.8338pt.
-<img/4-3.png, id=95, 623.32875pt x 411.78844pt>
+<img/4-3.png, id=108, 623.32875pt x 411.78844pt>
 File: img/4-3.png Graphic file (type png)
 <use img/4-3.png>
-Package pdftex.def Info: img/4-3.png  used on input line 139.
+Package pdftex.def Info: img/4-3.png  used on input line 140.
 (pdftex.def)             Requested size: 290.22107pt x 191.73097pt.
 
 
 [4 <./img/4-1.png (PNG copy)> <./img/4-2.png (PNG copy)> <./img/4-3.png (PNG co
 py)>]
-<img/5-1.png, id=106, 910.90312pt x 507.39563pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rho' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 148.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 148.
+
+<img/4-1-2.png, id=119, 874.01532pt x 542.025pt>
+File: img/4-1-2.png Graphic file (type png)
+<use img/4-1-2.png>
+Package pdftex.def Info: img/4-1-2.png  used on input line 169.
+(pdftex.def)             Requested size: 290.22107pt x 179.97707pt.
+<img/4-2-2.png, id=120, 865.73438pt x 537.50812pt>
+File: img/4-2-2.png Graphic file (type png)
+<use img/4-2-2.png>
+Package pdftex.def Info: img/4-2-2.png  used on input line 178.
+(pdftex.def)             Requested size: 290.22107pt x 180.1914pt.
+
+
+[5 <./img/4-1-2.png (PNG copy)>]
+<img/4-3-2.png, id=130, 868.74562pt x 539.01375pt>
+File: img/4-3-2.png Graphic file (type png)
+<use img/4-3-2.png>
+Package pdftex.def Info: img/4-3-2.png  used on input line 186.
+(pdftex.def)             Requested size: 290.22107pt x 180.07106pt.
+
+
+[6 <./img/4-2-2.png (PNG copy)> <./img/4-3-2.png (PNG copy)>]
+<img/5-1.png, id=141, 910.90312pt x 507.39563pt>
 File: img/5-1.png Graphic file (type png)
 <use img/5-1.png>
-Package pdftex.def Info: img/5-1.png  used on input line 188.
+Package pdftex.def Info: img/5-1.png  used on input line 235.
 (pdftex.def)             Requested size: 290.22107pt x 161.65762pt.
-
-
-[5]
-<img/5-2.png, id=116, 913.91437pt x 506.6428pt>
+<img/5-2.png, id=142, 913.91437pt x 506.6428pt>
 File: img/5-2.png Graphic file (type png)
 <use img/5-2.png>
-Package pdftex.def Info: img/5-2.png  used on input line 197.
+Package pdftex.def Info: img/5-2.png  used on input line 242.
 (pdftex.def)             Requested size: 290.22107pt x 160.88435pt.
-<img/5-3.png, id=117, 909.3975pt x 505.89pt>
+
+
+[7 <./img/5-1.png (PNG copy)>]
+<img/5-3.png, id=151, 909.3975pt x 505.89pt>
 File: img/5-3.png Graphic file (type png)
 <use img/5-3.png>
-Package pdftex.def Info: img/5-3.png  used on input line 205.
+Package pdftex.def Info: img/5-3.png  used on input line 249.
 (pdftex.def)             Requested size: 290.22107pt x 161.4481pt.
 )
 
-[6 <./img/5-1.png (PNG copy)> <./img/5-2.png (PNG copy)> <./img/5-3.png (PNG co
-py)>]
+[8 <./img/5-2.png (PNG copy)> <./img/5-3.png (PNG copy)>]
 \openout2 = `anexos.aux'.
 
  (anexos.tex
@@ -1005,48 +1085,48 @@ nput line 8.
 (../code/common/vrep/calculateWheelSpeeds.m)
 (../code/common/vrep/teleoperation.m
 
-[7
+[9
 
 
 
 
 ]
 
-[8]
+[10]
 
-[9]) (../code/common/vrep/calculateControlOutput.m
+[11]) (../code/common/vrep/calculateControlOutput.m
 
-[10]) (../code/common/vrep/controller.m
+[12]) (../code/common/vrep/controller.m
 
-[11]
+[13]
 
-[12]
+[14]
 
-[13]))
+[15]))
 
-[14] (IA903-Exercise_2-Gabriel_Toffanetto_289320.aux (corpo.aux) (anexos.aux))
+[16] (IA903-Exercise_2-Gabriel_Toffanetto_289320.aux (corpo.aux) (anexos.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
  ***********
 Package rerunfilecheck Info: File `IA903-Exercise_2-Gabriel_Toffanetto_289320.o
 ut' has not changed.
-(rerunfilecheck)             Checksum: FCC05014348E261C5528647883060E71;865.
+(rerunfilecheck)             Checksum: 811266E367DBD0303383721B88F3FE26;1131.
  ) 
 Here is how much of TeX's memory you used:
- 20775 strings out of 473898
- 347242 string characters out of 5726480
+ 20839 strings out of 473898
+ 348278 string characters out of 5726480
  2163960 words of memory out of 5000000
- 42872 multiletter control sequences out of 15000+600000
- 573849 words of font info for 74 fonts, out of 8000000 for 9000
+ 42925 multiletter control sequences out of 15000+600000
+ 576944 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,18n,107p,662b,2087s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,18n,107p,975b,2087s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1000.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecrm0600.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1440.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecti1200.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/
+/dpi600\ecti1200.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcrm1200.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/
 ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\gabri\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\gabri\AppData\Loca
@@ -1063,10 +1143,10 @@ type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gabri/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/gabri/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gabri/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on IA903-Exercise_2-Gabriel_Toffanetto_289320.pdf (14 pages, 320
-5065 bytes).
+Output written on IA903-Exercise_2-Gabriel_Toffanetto_289320.pdf (16 pages, 504
+7134 bytes).
 PDF statistics:
- 1020 PDF objects out of 1200 (max. 8388607)
- 377 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1062 PDF objects out of 1200 (max. 8388607)
+ 387 named destinations out of 1000 (max. 500000)
+ 124 words of extra memory for PDF output out of 10000 (max. 10000000)
 

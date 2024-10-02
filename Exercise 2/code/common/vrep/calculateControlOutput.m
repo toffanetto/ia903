@@ -16,13 +16,15 @@ rho = sqrt((xg-x)^2+(yg-y)^2);  % pythagoras theorem, sqrt(dx^2 + dy^2)
 lambda = atan2(yg-y, xg-x);     % angle of the vector pointing from the robot to the goal in the inertial frame
 alpha = lambda - theta;         % angle of the vector pointing from the robot to the goal in the robot frame
 alpha = normalizeAngle(alpha);
+beta = - lambda + thetag;
+beta = normalizeAngle(beta);
 
 % the following paramerters should be used:
 % Task 3:
 % parameters.Kalpha, parameters.Kbeta, parameters.Krho: controller tuning parameters
 
 vi = parameters.Krho*rho;
-wi = parameters.Kalpha*alpha;
+wi = parameters.Kalpha*alpha + parameters.Kbeta*beta;
 
 % Task 4:
 % parameters.backwardAllowed: This boolean variable should switch the between the two controllers
@@ -51,7 +53,7 @@ if parameters.useConstantSpeed
     end
 end
 
-vu = v; % [m/s]
-omega = w; % [rad/s]
+vu = vi; % [m/s]
+omega = wi; % [rad/s]
 end
 

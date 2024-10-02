@@ -2,5 +2,7 @@
 \contentsline {section}{\numberline {1}Cinemática inversa do robô diferencial}{2}{section.1}%
 \contentsline {section}{\numberline {2}Teleoperação do robô diferencial}{3}{section.2}%
 \contentsline {section}{\numberline {3}Controle em malha fechada}{3}{section.3}%
-\contentsline {section}{\numberline {4}Controle melhorado}{5}{section.4}%
-\contentsline {section}{Anexos}{7}{figure.caption.8}%
+\contentsline {subsection}{\numberline {3.1}Controle $\rho $ e $\alpha $}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Controle $\rho $, $\alpha $ e $\beta $}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Controle melhorado}{6}{section.4}%
+\contentsline {section}{Anexos}{9}{figure.caption.11}%
