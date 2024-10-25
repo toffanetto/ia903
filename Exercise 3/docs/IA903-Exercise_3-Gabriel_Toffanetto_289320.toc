@@ -1,0 +1,5 @@
+\babel@toc {brazilian}{}\relax 
+\contentsline {section}{\numberline {1}Line fitting and extraction for robot localization}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Fit line}{2}{subsection.1.1}%
+\contentsline {section}{Referências}{3}{lstnumber.-1.8}%
+\contentsline {section}{Apêndices}{4}{section*.2}%

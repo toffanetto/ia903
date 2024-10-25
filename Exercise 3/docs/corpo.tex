@@ -1,0 +1,45 @@
+\section{Line fitting and extraction for robot localization}
+
+\subsection{Fit line}
+
+Uma vez dada a função de custo para a regressão linear em coordenadas polares, \eqref{eq:S}, sendo $(x_i,y_i)$ o par ordenado em coordenadas cartesianas de um conjunto de $N$ pontos da lista obtida de pelo sensor, é possível minimizar tal função, obtendo o melhor par $(r^*, \alpha^*)$ para definir esse conjunto de pontos, \eqref{eq:Smin}.
+
+\begin{equation}\label{eq:S}
+	S(r,\alpha) = \sum_{i=0}^{N}\left( r - x_i\cos(\alpha) - y_i\sin(\alpha)\right) ^2
+\end{equation}
+
+\begin{equation}\label{eq:Smin}
+	(r^*, \alpha^*) = \arg \min_{r,\alpha} \sum_{i=0}^{N}\left( r - x_i\cos(\alpha) - y_i\sin(\alpha)\right) ^2
+\end{equation}
+
+O parâmetro $\alpha^*$ pode ser obtido por meio de \eqref{eq:alpha}, onde o centróide do conjunto de dados $(x_c,y_c)$ é dado por \eqref{eq:c}.
+
+\begin{equation}\label{eq:alpha}
+	\alpha^* = \dfrac{\text{atan2}\left( -2\sum_{i}\left( x_i - x_c\right) \left( y_i - y_c\right),\ \sum_{i}(y_i - y_c)^2 - (x_i - y_c)^2 \right) }{2}
+\end{equation}
+
+\begin{equation}\label{eq:c}
+	\begin{split}
+		x_c = \dfrac{1}{N}\sum_{i=0}^{N}x_i \\
+		y_c = \dfrac{1}{N}\sum_{i=0}^{N}y_i \\
+	\end{split}
+\end{equation}
+
+Uma vez encontrado $\alpha^*$, $r^*$ pode ser encontrado retornando em \eqref{eq:S}. Uma vez que quer se minimizar a distância do ponto à reta, sabe-se que a equação da relação entre coordenadas cartesianas e coordenadas polares é dada por $r = x\cos(\alpha) + y\sin(\alpha)$. Dessa forma, o mínimo erro ocorre quando a equação apresentada é verdadeira, com isso, enuncia-se \eqref{eq:r}.
+
+\begin{equation}\label{eq:r}
+	r^* = \frac{1}{N}\sum_{i=0}^{N} x_i\cos(\alpha^*) + y_i\sin(\alpha^*)
+\end{equation}
+
+Com isso, dado uma matriz de duas linhas, $\+{XY}$, com as respectivas coordenadas $x$ e $y$ de cada ponto que se deseja aproximar a reta, implementa-se em \texttt{Matlab} da seguinte forma:
+
+\begin{lstlisting}[language=Octave]
+	xc = sum(XY(1,:))/length(XY(1,:));
+	yc = sum(XY(2,:))/length(XY(2,:));
+	
+	nom   = -2*(sum((XY(1,:)-xc).*(XY(2,:)-yc)));
+	denom = sum(((XY(2,:)-yc).^2) - ((XY(1,:)-xc).^2));
+	alpha = atan2(nom,denom)/2;
+	
+	r = sum((XY(1,:).*cos(alpha)) + (XY(2,:).*sin(alpha)))/length(XY(1,:));
+\end{lstlisting}
