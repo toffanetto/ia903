@@ -5,4 +5,10 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Siegwart e Nourbakhsh 2004]{siegwart2004introduction}
+\abntrefinfo{Siegwart e Nourbakhsh}{SIEGWART; NOURBAKHSH}{2004}
+{SIEGWART, R.; NOURBAKHSH, I. \emph{Introduction to Autonomous Mobile Robots}.
+  [S.l.]: Bradford Book, 2004.  (A Bradford book).
+ISBN 9780262195027.}
+
 \end{thebibliography}
