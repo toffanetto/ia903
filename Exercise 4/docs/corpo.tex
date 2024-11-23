@@ -137,6 +137,8 @@ F_u = [(cos(x(3) + (u(2)-u(1))/(2*l))/2 + (u(1) + u(2))/(2*2*l)*sin(x(3) + (u(2)
 
 \subsection{Função de medição}
 
+Dada a refência de uma linha dada pelo mapa, pelo vetor $\begin{bmatrix} \alpha_t^j & r_t^j \end{bmatrix}^T$, no referencial inercial do mundo, porém, para utilizar esses dados, é preciso saber qual a posição das linhas em relação ao robô, pois assim o mapa estará no mesmo referencial dos sensores que serão utilizados na percepção. Com isso, realiza-se a transformação para o referencial do robô no estado atual por meio de \eqref{eq:h}. O jacobiano dessa transformação pode ser obtido aplicando as derivadas parciais em relação aos estados, como feito em \eqref{eq:H}.
+
 \begin{equation}\label{eq:h}
 	\+h(\widehat{\+x}_t,\+m^j) = \begin{bmatrix}
 		\alpha_t^j - \widehat{\theta}_t \\
@@ -247,20 +249,58 @@ P_posteriori = (eye(size(P_priori)) - K*H) * P_priori;
 %ENDRM
 \end{lstlisting}
 
+\clearpage
 
 \section{Experimento V-REP}
 
+Ao executar a simulação de localização incremental no CoppeliaSim, utilizando a fusão dos dados de odometria com os dados obtidos com o LiDAR comparados ao mapa, obtém-se uma localização precisa, como visto na \autoref{fig:vrep}, onde o robô \textit{ghost} está posicionado de forma coincidente ao robô real. Na \autoref{fig:measuement}, observba-se o \textit{match} feito entre as retas presentes no mapa, transformadas para o referencial do robô, e as retas obtidas por meio da percepção. Mesmo com o casamento de apenas algumas retas, a correção da localização é poderosa.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{img/measuement}
+	\includegraphics[width=0.65\linewidth]{img/measuement}
 	\caption{Representação das retas do mapa (prior) e as retas obtidas pelo LiDAR no espaço de Hough.}
 	\label{fig:measuement}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\linewidth]{img/vrep}
+	\includegraphics[width=0.9\linewidth]{img/vrep}
 	\caption{Estado final do robô na simulação.}
 	\label{fig:vrep}
 \end{figure}
+
+A implementação da função de localização incremental utilizando filtro de Kalman estendido é dada abaixo:
+
+\begin{lstlisting}[language=Octave]
+function [x_posterori, P_posterori] = incrementalLocalization(x, P, u, S, M, params, k, g, l)
+% [x_posterori, P_posterori] = incrementalLocalization(x, P, u, S, R, M,
+% k, l, g) returns the a posterori estimate of the state and its covariance,
+% given the previous state estimate, control inputs, laser measurements and
+% the map
+
+C_TR = diag([repmat(0.1^2, 1, size(S, 2)) repmat(0.1^2, 1, size(S, 2))]);
+[z, R, ans] = extractLinesPolar(S(1,:), S(2,:), C_TR, params);
+
+
+%STARTRM
+figure(2), cla, hold on;
+
+%compute z_prior
+z_prior = zeros(size(M));
+
+for j = 1:size(M, 2)
+[z_prior(:,j) H] = measurementFunction(x, M(:,j));
+end
+
+plot(z(1,:), z(2,:),'bo');
+plot(z_prior(1,:), z_prior(2,:),'rx');
+xlabel('angle [rad]'); ylabel('distance [m]')
+legend('measurement','prior')
+drawnow
+
+% estimate robot pose
+[x_posterori, P_posterori] = filterStep(x, P, u, z, R, M, k, g, l); %hint: you just coded this function
+
+%ENDRM
+\end{lstlisting}
 

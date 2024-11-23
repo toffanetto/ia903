@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.7)  23 NOV 2024 18:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.7)  23 NOV 2024 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,35 +957,37 @@ File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 [5
 
 ]
-<img/odometry_filtered.pdf, id=161, 361.35pt x 301.125pt>
+<img/odometry_filtered.pdf, id=163, 361.35pt x 301.125pt>
 File: img/odometry_filtered.pdf Graphic file (type pdf)
 <use img/odometry_filtered.pdf>
-Package pdftex.def Info: img/odometry_filtered.pdf  used on input line 210.
+Package pdftex.def Info: img/odometry_filtered.pdf  used on input line 212.
 (pdftex.def)             Requested size: 362.77264pt x 302.3143pt.
 
 
 [6
 
  <./img/odometry_filtered.pdf>]
-<img/measuement.pdf, id=184, 362.35374pt x 294.09875pt>
-File: img/measuement.pdf Graphic file (type pdf)
-<use img/measuement.pdf>
-Package pdftex.def Info: img/measuement.pdf  used on input line 255.
-(pdftex.def)             Requested size: 362.77264pt x 294.44356pt.
-
 
 [7]
-<img/vrep.png, id=213, 1172.88188pt x 634.62094pt>
+<img/measuement.pdf, id=216, 362.35374pt x 294.09875pt>
+File: img/measuement.pdf Graphic file (type pdf)
+<use img/measuement.pdf>
+Package pdftex.def Info: img/measuement.pdf  used on input line 260.
+(pdftex.def)             Requested size: 314.40001pt x 255.18172pt.
+<img/vrep.png, id=217, 1172.88188pt x 634.62094pt>
 File: img/vrep.png Graphic file (type png)
 <use img/vrep.png>
-Package pdftex.def Info: img/vrep.png  used on input line 262.
-(pdftex.def)             Requested size: 483.69687pt x 261.71658pt.
-)
+Package pdftex.def Info: img/vrep.png  used on input line 267.
+(pdftex.def)             Requested size: 435.32422pt x 235.542pt.
 
-[8 <./img/measuement.pdf> <./img/vrep.png (PNG copy)>]
-(IA903-Exercise_4-Gabriel_Toffanetto_289320.bbl)
 
-[9
+[8
+
+ <./img/measuement.pdf> <./img/vrep.png (PNG copy)>])
+
+[9] (IA903-Exercise_4-Gabriel_Toffanetto_289320.bbl)
+
+[10
 
 
 
@@ -996,16 +998,16 @@ L3 programming layer <2024-08-16>
  ***********
 Package rerunfilecheck Info: File `IA903-Exercise_4-Gabriel_Toffanetto_289320.o
 ut' has not changed.
-(rerunfilecheck)             Checksum: 8FBBE8C465666880E980989C23DD0A87;801.
+(rerunfilecheck)             Checksum: E9AAC74ACFE808911AF336F227085B65;800.
  ) 
 Here is how much of TeX's memory you used:
- 20338 strings out of 473898
- 339275 string characters out of 5726480
+ 20381 strings out of 473898
+ 339879 string characters out of 5726480
  2225960 words of memory out of 5000000
- 42709 multiletter control sequences out of 15000+600000
+ 42720 multiletter control sequences out of 15000+600000
  572375 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,23n,107p,435b,2036s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 109i,23n,107p,692b,2036s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
 1200.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecbx1440.pk> <C:\Users\gabri\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1027,10 +1029,10 @@ ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/gabri/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/gabri/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gabri/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on IA903-Exercise_4-Gabriel_Toffanetto_289320.pdf (9 pages, 1389
-503 bytes).
+Output written on IA903-Exercise_4-Gabriel_Toffanetto_289320.pdf (10 pages, 140
+0870 bytes).
 PDF statistics:
- 653 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
+ 704 PDF objects out of 1000 (max. 8388607)
+ 154 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
