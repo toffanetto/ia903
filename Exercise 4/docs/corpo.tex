@@ -187,6 +187,8 @@ end
 
 \subsection{Filtro}
 
+Para aplicação da correção utilizando filtro de Kalman estendido, é necessário inicialmente realizar a etapa de predição, feita anteriormente pela função de transição de estados. Além disso, é preciso saber a covariância do erro \textit{a priori} ($\widehat{\+P}_t$), que é obtida com base na matriz de covariância $\+Q$, dada por \eqref{eq:Q}.
+
 \begin{equation}\label{eq:Q}
 	\+Q = \begin{bmatrix}
 		k|\Delta s_r| & 0 \\
@@ -194,17 +196,29 @@ end
 	\end{bmatrix}
 \end{equation}
 
+Sendo assim, a covariância do erro \textit{a priori} é dada por \eqref{eq:Ppriori}, utilizando os jacobianos obtidos em \eqref{eq:Fx} e \eqref{eq:Fu}.
+
 \begin{equation}\label{eq:Ppriori}
 	\widehat{\+P}_t = \+{F_x}\+P\+{F_x}^T + \+{F_u}\+Q\+{F_u}^T 
 \end{equation}
 
+Realizada a predição, é feita a etapa de correção, onde uma vez feito o \textit{matching} do estado predito com a leitura dos sensores exteroceptivos, é obtida a inovação ($\+S$), que permite a obtenção do ganho de Kalman ($\+K$) que é utilizado para realização da correção propriamente dita.
+
+Em \eqref{eq:S} é obtida a inovação com base na covariância da predição e o jacobiano do sensor, obtido em \eqref{eq:H}, além da matriz de covariância do sensor $\+R$. Por fim, o ganho de Kalman é conforme \eqref{eq:K}, e a correção é feita em \eqref{eq:correcao}, obtendo a predição \textit{a posteriori}.
+
 \begin{equation}\label{eq:S}
-	\+S = \+H\widehat{\+P}_t\+H^T + \+R
+	\+S_t = \+H\widehat{\+P}_t\+H^T + \+R_t
 \end{equation}
 
 \begin{equation}\label{eq:K}
-	\+K = \widehat{\+P}_t\+H^T\+S^{-1}
+	\+K_t = \widehat{\+P}_t\+H^T\+S^{-1}
 \end{equation}
+
+\begin{equation}\label{eq:correcao}
+	\widehat{\+x}_{t|t} = 	\widehat{\+x}_{t|t-1} + \+K_t \widetilde{\+y}_t
+\end{equation}
+
+Por meio da filtragem da odometria utilizando filtro de Kalman extendido, fundindo os dados juntamente à medida da percepção do robô, observa-se na \autoref{fig:odometry_filtered} que a localização do robô se torna precisa, acompanhando a trajetória do mesmo com fidelidade.
 
 
 \begin{figure}[H]
@@ -215,16 +229,10 @@ end
 \end{figure}
 
 \begin{lstlisting}[language=Octave]
-function [x_posteriori, P_posteriori] = filterStep(x, P, u, Z, R, M, k, g, l)
-% [x_posteriori, P_posteriori] = filterStep(x, P, u, z, R, M, k, g, l)
-% returns an a posteriori estimate of the state and its covariance
-
-%STARTRM
-
-% propagate the state (p. 337) , here kr=kl=k
+function [x_posteriori, P_posteriori] = filterStep(x,P,u,Z,R,M,k,g,l)
 Q = [k*abs(u(2)) 0; 0 k*abs(u(1))]; 
 
-[x_priori, F_x, F_u] = transitionFunction(x, u, l); %hints: you just coded this function
+[x_priori, F_x, F_u] = transitionFunction(x, u, l); 
 P_priori = F_x*P*F_x' + F_u*Q*F_u';
 
 if size(Z,2) == 0
@@ -233,20 +241,17 @@ P_posteriori = P_priori;
 return;
 end
 
-[v, H, R] = associateMeasurements(x_priori, P_priori, Z, R, M, g);%hints: you just coded this function
+[v, H, R] = associateMeasurements(x_priori, P_priori, Z, R, M, g);
 
 y = reshape(v, [], 1);
 H = reshape(permute(H, [1,3,2]), [], 3);
 R = blockDiagonal(R);
 
-% update state estimates (pp. 335)
 S = H*P_priori*H'+R; %S is the innovation covariance matrix
 K = P_priori*H'/S;
 
 x_posteriori = x_priori + K * y;
 P_posteriori = (eye(size(P_priori)) - K*H) * P_priori;
-
-%ENDRM
 \end{lstlisting}
 
 \clearpage
